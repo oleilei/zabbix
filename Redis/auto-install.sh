@@ -9,6 +9,7 @@ echo "2.将qiueer目录、redis.py复制到 /data/local/zabbix/monitor_scripts/r
 wget https://github.com/oleilei/zabbix/archive/master.zip
 unzip master
 cd zabbix-master/Redis/
+mkdir -p /data/local/zabbix/monitor_scripts/redis/
 cp -R qiueer redis.py .redis.passwd /data/local/zabbix/monitor_scripts/redis/
 
 
@@ -24,6 +25,8 @@ echo "
 UserParameter=redis.discovery.list, python /data/local/zabbix/monitor_scripts/redis/redis.py --list
 UserParameter=redis.discovery[*],python /data/local/zabbix/monitor_scripts/redis/redis.py -p \$1 -k \$2
 " > /data/local/zabbix/etc/zabbix_agentd.conf.d/userparameter.redis.conf
+
+more /data/local/zabbix/etc/zabbix_agentd.conf.d/userparameter.redis.conf
 
 chown -R zabbix.zabbix /data/local/zabbix
 chmod -R +x /data/local/zabbix

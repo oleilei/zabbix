@@ -1,0 +1,1 @@
+UserParameter=redis[*],/data/local/zabbix/monitor_scripts/redis_status.sh $1 $2

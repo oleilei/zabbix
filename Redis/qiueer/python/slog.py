@@ -50,7 +50,7 @@ class slog(object):
     
     def __new__(cls, *args, **kwd):
         if slog.__logger is None:
-            slog.__logger = object.__new__(cls, *args, **kwd)
+            slog.__logger = object.__new__(cls)
         return slog.__logger
     
     @classmethod

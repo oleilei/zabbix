@@ -20,7 +20,7 @@ class Redis(object):
         self._password = password
         self._port = port if port else 6379
         self._debug = debug
-        self._file_cache_path = "/tmp/.zabbix_memcache_%s.log" % (port)
+        self._file_cache_path = "/tmp/.zabbix_redis_%s.log" % (port)
         self._file_cache = filecache(self._file_cache_path)
         self._logger = slog(self._logpath, debug=debug, size=5, count=5)
 
@@ -82,7 +82,7 @@ class Redis(object):
         
         rds_cli_path = which("redis-cli")
         ## 适配编译安装，这里设置常用的路径
-        rds_paths_def = ["/usr/bin/redis-cli", "/bin/redis-cli", "/usr/local/redis-server/bin/redis-cli"]
+        rds_paths_def = ["/usr/local/bin/redis-cli", "/usr/bin/redis-cli", "/bin/redis-cli", "/usr/local/redis-server/bin/redis-cli"]
         
         cmdstr = None
         if rds_cli_path:

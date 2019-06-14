@@ -189,5 +189,5 @@ def main(passwd_file):
         print tb
 
 if __name__ == '__main__':
-    redis_passwd_file = "/usr/local/public-ops/zabbix/.redis.passwd"
+    redis_passwd_file = "/data/local/zabbix/monitor_scripts/redis/.redis.passwd"
     main(redis_passwd_file)
